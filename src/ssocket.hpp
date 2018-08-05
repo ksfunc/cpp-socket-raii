@@ -7,24 +7,24 @@
 namespace socket_raii {
   class Socket;
 
-	class ServerSocket {
+  class ServerSocket {
   private:
-		int sock;
-		bool own {false};
+    int sock;
+    bool own {false};
 
-	public:
+  public:
     ServerSocket(uint16_t port, int backlog);
     virtual ~ServerSocket();
 
-		ServerSocket(const ServerSocket& ssoket) = delete;
-		ServerSocket& operator=(const ServerSocket& ssoket) = delete;
+    ServerSocket(const ServerSocket& ssoket) = delete;
+    ServerSocket& operator=(const ServerSocket& ssoket) = delete;
 
-		ServerSocket(ServerSocket&& rssocket);
-		ServerSocket& operator=(ServerSocket&& rssocket);
+    ServerSocket(ServerSocket&& rssocket);
+    ServerSocket& operator=(ServerSocket&& rssocket);
 
     int getFileDescriptor();
 
-		Socket accept();
+    Socket accept();
   };
 }
 
